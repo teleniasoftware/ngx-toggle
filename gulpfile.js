@@ -109,7 +109,7 @@ gulp.task('npm', function() {
   let targetPkgJson = {};
   let fieldsToCopy = ['version', 'description', 'keywords', 'author', 'repository', 'license', 'bugs', 'homepage'];
 
-  targetPkgJson['name'] = 'ngx-toggle';
+  targetPkgJson['name'] = '@telenia/ngx-toggle';
 
   fieldsToCopy.forEach(function(field) {
     targetPkgJson[field] = pkgJson[field];
@@ -229,7 +229,7 @@ gulp.task('saucelabs', ['build:tests'], function(done) {
 
 gulp.task('lint', function() {
   return gulp.src([PATHS.src, PATHS.demo, '!demo/src/api-docs.ts'])
-      .pipe(tslint({configuration: require('./tslint.json'), formatter: 'prose'}))
+      .pipe(tslint({configuration: './tslint.json', formatter: 'prose'}))
       .pipe(tslint.report({summarizeFailureOutput: true}));
 });
 
